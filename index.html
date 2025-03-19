@@ -13,13 +13,13 @@
             --dark-color: #333333;
             --success-color: #2e7d32;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'EB Garamond', serif;
             line-height: 1.6;
@@ -32,14 +32,14 @@
             background-attachment: fixed;
             font-size: 18px;
         }
-        
+
         .container {
             width: 100%;
             max-width: 800px;
             margin: 1rem auto;
             padding: 0 15px;
         }
-        
+
         .card {
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 12px;
@@ -48,85 +48,50 @@
             margin-bottom: 20px;
             width: 100%;
         }
-        
+
+        /* Header Section */
         header {
             text-align: center;
             padding: 40px 15px;
-            background-color: var(--primary-color);
+            /*background-color: var(--primary-color); /* Default purple background */
+            /* To use a background image, replace the line above with: */
+            background-image: url('header_bg.png'); 
+            background-size: cover;
+            background-position: center;
             color: white;
             position: relative;
         }
-        
-        .lantern {
-            position: absolute;
-            width: 30px;
-            height: 45px;
-            background-color: var(--accent-color);
-            border-radius: 15px 15px 0 0;
-            opacity: 0.6;
-        }
-        
-        .lantern:before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: 10px;
-            width: 8px;
-            height: 8px;
-            background-color: #fff;
-            border-radius: 50%;
-        }
-        
-        .lantern:after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 8px;
-            width: 15px;
-            height: 8px;
-            background-color: #fff;
-            border-radius: 0 0 5px 5px;
-        }
-        
-        .lantern-1 {
-            top: 20px;
-            left: 30px;
-        }
-        
-        .lantern-2 {
-            top: 40px;
-            right: 30px;
-        }
-        
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             font-weight: normal;
         }
-        
+
         .arabic {
             font-family: 'Amiri', serif;
             font-size: 1.8rem;
             margin-bottom: 15px;
             font-weight: lighter;
         }
-        
+
         .subtitle {
             font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 12px;
         }
-        
+
+        /* Event Details Section */
         .event-details {
             padding: 25px 20px;
         }
-        
+
         .detail-item {
             display: flex;
             align-items: flex-start;
             margin-bottom: 25px;
         }
-        
+
         .icon {
             flex: 0 0 30px;
             margin-right: 15px;
@@ -134,48 +99,59 @@
             height: 30px;
             width: 30px;
         }
-        
+
         .detail-content {
             flex: 1;
         }
-        
+
         .detail-title {
             font-weight: bold;
             margin-bottom: 8px;
             color: var(--primary-color);
             font-size: 1.2rem;
         }
-        
+
         .detail-content div {
             margin-bottom: 4px;
             font-size: 1rem;
         }
-        
+
         .kazakh {
             font-style: italic;
             color: #555;
             margin-top: 5px;
         }
-        
+
+        /* Hosts Section */
         .hosts {
             margin-top: 30px;
             text-align: center;
         }
-        
+
         .hosts-title {
             font-weight: bold;
             margin-bottom: 15px;
             color: var(--primary-color);
             font-size: 1.3rem;
         }
-        
+
         .hosts-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             justify-content: center;
+            margin-bottom: 12px;
         }
-        
+
+        .hosts-list::after {
+            content: '';
+            grid-column: span 3;
+        }
+
+        .hosts-list .host:nth-child(n+4) {
+            grid-column: span 1.5;
+        }
+
         .host {
             padding: 12px 8px;
             border: 1px solid #ddd;
@@ -185,111 +161,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        
-        .decoration {
             text-align: center;
-            margin: 25px 0;
-            color: var(--accent-color);
-            font-size: 1.3rem;
-        }
-        
-        .form-container {
-            padding: 25px 20px;
-        }
-        
-        .form-title {
-            text-align: center;
-            margin-bottom: 25px;
-            color: var(--primary-color);
-            font-weight: normal;
-            font-size: 1.8rem;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 14px 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border 0.3s;
-            font-family: 'EB Garamond', serif;
-            -webkit-appearance: none; /* Remove default styling on iOS */
-            appearance: none;
-        }
-        
-        /* Add a custom arrow for select elements */
-        select {
-            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%233b1e5f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-size: 16px;
-            padding-right: 40px;
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 2px rgba(198, 141, 76, 0.2);
+            min-height: 60px;
+            word-break: break-word;
+            white-space: normal;
         }
 
-        /* Increase touch target size for better mobile interaction */
-        button, select, input[type="submit"] {
-            min-height: 50px;
-        }
-        
-        button {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 15px 20px;
-            font-size: 1.1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s;
-            font-family: 'EB Garamond', serif;
-            font-weight: 500;
-            -webkit-appearance: none; /* Remove default styling on iOS */
-            appearance: none;
-        }
-        
-        button:hover, button:active {
-            background-color: #b07a3b;
-        }
-        
-        .success-message {
-            padding: 20px 15px;
-            background-color: var(--success-color);
-            color: white;
-            border-radius: 8px;
-            text-align: center;
-            margin: 20px 0;
-            display: none;
-            font-size: 1.1rem;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 25px 15px;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            font-size: 1.1rem;
-        }
-        
-        /* Location links styling */
         .location-links {
             margin-top: 12px;
             display: flex;
@@ -312,8 +189,125 @@
             background-color: var(--accent-color);
             color: white;
         }
-        
-        /* Sticky RSVP button for mobile */
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 480px) {
+            .hosts-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hosts-list::after {
+                grid-column: span 2;
+            }
+            
+            .hosts-list .host:nth-child(n+4) {
+                grid-column: span 1;
+            }
+            
+            .host {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Decoration */
+        .decoration {
+            text-align: center;
+            margin: 25px 0;
+            color: var(--accent-color);
+            font-size: 1.3rem;
+        }
+
+        /* Form Container */
+        .form-container {
+            padding: 25px 20px;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-weight: normal;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s;
+            font-family: 'EB Garamond', serif;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        select {
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%233b1e5f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(198, 141, 76, 0.2);
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+            font-family: 'EB Garamond', serif;
+            font-weight: 500;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        button:hover, button:active {
+            background-color: #b07a3b;
+        }
+
+        .success-message {
+            padding: 20px 15px;
+            background-color: var(--success-color);
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            display: none;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-size: 1.1rem;
+        }
+
+        /* Mobile Sticky Button */
         .mobile-sticky-button {
             display: none;
             position: fixed;
@@ -325,7 +319,7 @@
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
             z-index: 100;
         }
-        
+
         .mobile-sticky-button button {
             background-color: var(--accent-color);
             border-radius: 25px;
@@ -333,158 +327,12 @@
             font-size: 1rem;
         }
 
-        /* Media Queries for different screen sizes */
         @media (max-width: 480px) {
-            body {
-                font-size: 16px;
-                background-attachment: scroll; /* Better performance on mobile */
-            }
-            
-            .container {
-                padding: 8px;
-                margin: 0.5rem auto;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .arabic {
-                font-size: 1.5rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            .event-details, .form-container {
-                padding: 20px 15px;
-            }
-            
-            .detail-item {
-                margin-bottom: 20px;
-            }
-            
-            .icon {
-                flex: 0 0 25px;
-                margin-right: 12px;
-                height: 25px;
-                width: 25px;
-            }
-            
-            .hosts-list {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-                gap: 8px;
-            }
-            
-            .host {
-                padding: 10px 5px;
-                font-size: 0.9rem;
-            }
-            
-            .decoration {
-                margin: 20px 0;
-                font-size: 1.1rem;
-            }
-            
-            .form-title {
-                font-size: 1.5rem;
-            }
-            
-            label {
-                font-size: 1rem;
-            }
-            
-            input, select, textarea {
-                padding: 12px 10px;
-                font-size: 1rem;
-            }
-            
-            button {
-                padding: 12px 15px;
-                font-size: 1rem;
-            }
-            
-            /* Show sticky RSVP button on mobile */
             .mobile-sticky-button {
                 display: block;
             }
-            
-            /* Add some padding to prevent content from being hidden under the sticky button */
             body {
                 padding-bottom: 70px;
-            }
-        }
-        
-        /* For medium-sized screens */
-        @media (min-width: 481px) and (max-width: 768px) {
-            .container {
-                padding: 12px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hosts-list {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            }
-            
-            .location-links {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            
-            .location-links a {
-                flex: 1;
-                min-width: 120px;
-            }
-        }
-        
-        /* For landscape orientation on mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            header {
-                padding: 20px 15px;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-                margin-bottom: 5px;
-            }
-            
-            .arabic {
-                font-size: 1.3rem;
-                margin-bottom: 5px;
-            }
-            
-            .subtitle {
-                font-size: 0.9rem;
-                margin-bottom: 5px;
-            }
-            
-            .hosts-list {
-                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-            }
-        }
-
-        /* For print layout */
-        @media print {
-            body {
-                background-image: none;
-                background-color: white;
-            }
-            
-            .card {
-                box-shadow: none;
-                border: 1px solid #ddd;
-            }
-            
-            .mobile-sticky-button {
-                display: none;
-            }
-            
-            .form-container {
-                display: none;
             }
         }
     </style>
@@ -492,9 +340,8 @@
 <body>
     <div class="container">
         <div class="card">
+            <!-- Header Section -->
             <header>
-                <div class="lantern lantern-1"></div>
-                <div class="lantern lantern-2"></div>
                 <h1>Ауызашарға шақыру</h1>
                 <div class="subtitle">Iftar Dinner Invitation</div>
                 <div class="arabic">السلام عليكم ورحمة الله وبركاته</div>
@@ -502,7 +349,9 @@
                 <div class="subtitle">Join us for a blessed evening of breaking fast together</div>
             </header>
             
+            <!-- Event Details Section -->
             <div class="event-details">
+                <!-- Date & Time -->
                 <div class="detail-item">
                     <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
@@ -516,6 +365,7 @@
                     </div>
                 </div>
                 
+                <!-- Location -->
                 <div class="detail-item">
                     <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -528,13 +378,14 @@
                             <a href="https://maps.app.goo.gl/ZSsUj3TcsH1MhDMu8" target="_blank">
                                 📍 Google Maps
                             </a>
-                            <a href="https://maps.apple.com/?address=12300%20Riata%20Trace%20Pkwy,%20Austin,%20TX%20%2078727,%20United%20States&ll=30.429040,-97.746941&q=Dropped%20Pin" target="_blank">
+                            <a href="https://maps.apple.com/?ll=30.429037,-97.746967&q=Dropped%20Pin" target="_blank">
                                 📍 Apple Maps
                             </a>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Hosts Section -->
                 <div class="hosts">
                     <div class="hosts-title">Ізгі ниетпен:</div>
                     <div class="hosts-list">
@@ -547,10 +398,12 @@
                 </div>
             </div>
             
+            <!-- Decoration -->
             <div class="decoration">
                 ✦ ✦ ✦ ✦ ✦
             </div>
             
+            <!-- RSVP Form Section -->
             <div id="rsvp-section" class="form-container">
                 <h2 class="form-title">RSVP:</h2>
                 
@@ -605,6 +458,7 @@
             </div>
         </div>
         
+        <!-- Footer -->
         <footer>
             <div class="decoration">
                 ☪ ✦ ☪ ✦ ☪
